@@ -1,9 +1,11 @@
 import express from "express";
 import {
     addPartToProject,
+  decrementByOne,
   deleteProject,
   getMyAllProjects,
   getMyProjectInfo,
+  incrementByOne,
   newProject,
   updatePartQuantityInProject,
 } from "../controllers/projectControllers.js";
@@ -26,6 +28,8 @@ router.delete("/:projectId", isAuthenticated, deleteProject);
 // ✅ NEW: Update quantity of a specific part in a project
 router.put("/:projectId/part/:partId/quantity", isAuthenticated, updatePartQuantityInProject);
 router.post("/:projectId/part/:partId/new", isAuthenticated, addPartToProject);
+router.put("/:projectId/part/:partId/plusone", isAuthenticated, incrementByOne);
+router.put("/:projectId/part/:partId/minusone", isAuthenticated, decrementByOne);
 
 
 export default router;
