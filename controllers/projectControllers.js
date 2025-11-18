@@ -221,6 +221,42 @@ export const addPartToProject = async (req, res, next) => {
   }
 };
 
+
+//Remove A Part from the project
+export const removePartFromProject = async (req, res, next) => {
+  try{
+    const {projectId, partId} = req.params;
+
+    //Find the project
+    const project = await Project.findOne({
+      _id: projectId,
+      user: req.user._id
+    });
+    if(!project) return next (new ErrorHandler("Project not found", 404));
+
+    //Check if the part exist in the project
+    const part = project.parts.find(
+      (p) => p.part.toString() === partId
+    );
+
+    if(!part) return next(new ErrorHandler("Part not Found in this project", 404));
+
+    //Remove it
+    project.parts = project.parts.filter(
+      (p) => p.part.toString() !== partId
+    );
+
+    await project.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Part deleted from project!"
+    });
+  }catch(error){
+    next(error);
+  }
+}
+
 ///Extra code by ChatGPT
 // export const addPartToProject = async (req, res, next) => {
 //   try {

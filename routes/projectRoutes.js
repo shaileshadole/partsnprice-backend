@@ -7,6 +7,7 @@ import {
   getMyProjectInfo,
   incrementByOne,
   newProject,
+  removePartFromProject,
   updatePartQuantityInProject,
 } from "../controllers/projectControllers.js";
 import { isAuthenticated } from "../middlewares/auth.js";
@@ -30,6 +31,7 @@ router.put("/:projectId/part/:partId/quantity", isAuthenticated, updatePartQuant
 router.post("/:projectId/part/:partId/new", isAuthenticated, addPartToProject);
 router.put("/:projectId/part/:partId/plusone", isAuthenticated, incrementByOne);
 router.put("/:projectId/part/:partId/minusone", isAuthenticated, decrementByOne);
+router.delete("/:projectId/part/:partId", isAuthenticated, removePartFromProject)
 
 
 export default router;
