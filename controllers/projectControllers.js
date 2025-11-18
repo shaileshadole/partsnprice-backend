@@ -9,14 +9,17 @@ export const newProject = async (req, res, next) => {
     // Get user ID from authenticated user (added by auth middleware)
     const userId = req.user._id;
 
-    const project = await Project.create({
+    const projectData = {
       name,
       description,
-      submitDate,
-      user: userId, // Associate project with the logged-in user
-    });
+      user: userId,
+    };
+    
+    if(submitDate) {
+      projectData.submitDate = new Date(submitDate);
+    }
 
-    if (!project) return next(new ErrorHandler("Project Not Found", 404));
+    const project = await Project.create(projectData);
 
     res.status(201).json({
       success: true,
