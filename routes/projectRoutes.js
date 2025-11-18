@@ -9,6 +9,7 @@ import {
   newProject,
   removePartFromProject,
   updatePartQuantityInProject,
+  updateProject,
 } from "../controllers/projectControllers.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
@@ -23,8 +24,12 @@ router.get("/all", isAuthenticated, getMyAllProjects);
 // Get info about a specific project
 router.get("/:projectId", isAuthenticated, getMyProjectInfo);
 
+//Update the project
+router.put("/:projectId", isAuthenticated, updateProject);
+
 // Delete a project
 router.delete("/:projectId", isAuthenticated, deleteProject);
+
 
 // ✅ NEW: Update quantity of a specific part in a project
 router.put("/:projectId/part/:partId/quantity", isAuthenticated, updatePartQuantityInProject);

@@ -32,6 +32,10 @@ const projectSchema = new mongoose.Schema({
       return now;
     },
   },
+  totalBudget:{
+    type: Number,
+    default: 0
+  }
 },{ timestamps: true });
 
 export const Project = mongoose.model("Project", projectSchema);

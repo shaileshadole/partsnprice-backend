@@ -63,6 +63,32 @@ export const getMyAllProjects = async (req, res, next) => {
   }
 };
 
+//Update Project
+export const updateProject = async (req, res, next) => {
+  try{
+    const { projectId } = req.params;
+    const { name, description, submitDate } = req.body;
+
+    const project = await Project.findById(projectId);
+    if(!project) {
+      return next (new ErrorHandler("Project not Found"))
+    }
+
+    project.name = name;
+    project.description = description;
+    project.submitDate = submitDate;
+
+    project.save();
+    
+    res.status(200).json({
+      success: true,
+      message: "Project updated successfully"
+    });
+  }catch(error){
+    next(error);
+  }
+}
+
 export const deleteProject = async (req, res, next) => {
   try {
     const project = await Project.findOne({
