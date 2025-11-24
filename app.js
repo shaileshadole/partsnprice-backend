@@ -15,6 +15,7 @@ config({
 
 //Using Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // CORS Setup
@@ -32,7 +33,7 @@ app.use("/api/v1/project", projectRouter);
 app.use("/api/v1/part", partRouter);
 // app.use("/api/v1/project", partRouter);
 
-app.get("/", (res, req) => {
+app.get("/", (req, res) => {
   res.send("Nice Working");
 });
 
