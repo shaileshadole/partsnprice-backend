@@ -1,5 +1,11 @@
 # PriceNParts Backend
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green?logo=node.js) 
+![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express) 
+![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen?logo=mongodb) 
+![Render](https://img.shields.io/badge/Deployed%20on-Render-blue?logo=render)
+
 RESTful API that powers the PriceNParts app. It lets authenticated makers create projects, curate a catalog of parts, and track per-project part usage plus total budgets. The service is built with Express, MongoDB (via Mongoose), and cookie-based JWT auth.
 
 ## Highlights
