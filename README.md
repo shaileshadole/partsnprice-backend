@@ -130,4 +130,32 @@ All routes live under `/api/v1/*` and, unless noted, require a valid `token` coo
 
 ---
 
+## 🧑‍💻 Author
+
+**Shailesh Adole**  
+GitHub: [shaileshadole](https://github.com/shaileshadole)
+
+---
+
+## 🔗 Related Repositories
+
+[PartsNPrice Frontend](https://github.com/shaileshadole/partsnprice-frontend)
+
+---
+
+## 🚀 Let's Connect
+
+- 🌐 [LinkedIn](https://www.linkedin.com/in/shailesh-adole-01306a303/)
+- ✉️ [Email](adoleshailesh2@gmail.com)
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
 Need anything else documented? Open an issue or extend this README. Happy building!
+
+
