@@ -2,6 +2,7 @@ import express from "express";
 import userRouter from "./routes/userRoutes.js";
 import partRouter from "./routes/partsRoutes.js";
 import projectRouter from "./routes/projectRoutes.js";
+import paymentRouter from "./routes/paymentRoutes.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/error.js";
@@ -31,6 +32,7 @@ app.use(cors(corsOptions));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/project", projectRouter);
 app.use("/api/v1/part", partRouter);
+app.use("/api/v1/payment", paymentRouter);
 // app.use("/api/v1/project", partRouter);
 
 app.get("/", (req, res) => {
