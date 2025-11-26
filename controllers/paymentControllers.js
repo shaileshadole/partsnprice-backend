@@ -41,7 +41,7 @@ export const getPayment = async (req, res, next) => {
     const project = await Project.findById(projectId);
     if (!project) return next(new ErrorHandler("Project not found", 404));
 
-    const paymentArray = (await Payment.find({ projectId })).sort({
+    const paymentArray = await Payment.find({ projectId }).sort({
       date: -1,
     });
 

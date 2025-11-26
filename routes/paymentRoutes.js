@@ -9,8 +9,8 @@ import {
 
 const router = express.Router();
 
-router.post("/", isAuthenticated, addPayment);
-router.get("/", isAuthenticated, getPayment);
+router.post("/:projectId", isAuthenticated, addPayment);
+router.get("/:projectId", isAuthenticated, getPayment);
 router.put("/:paymentId", isAuthenticated, updatePayment);
 router.delete("/:paymentId", isAuthenticated, deletePayment);
 
